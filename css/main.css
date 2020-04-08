@@ -2544,7 +2544,6 @@ html.no-csstransitions .home-content__main {
 }
 
 .item-folio__thumb img {
-  vertical-align: bottom;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -2599,12 +2598,9 @@ html.no-csstransitions .home-content__main {
   left: 0;
   bottom: 3.6rem;
   padding: 0 3.3rem;
-  z-index: 2;
+  z-index: 20;
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: translate3d(0, 100%, 0);
-  -ms-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
