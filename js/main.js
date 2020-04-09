@@ -1,7 +1,4 @@
-/* ===================================================================
- * Glint - Main JS
- *
- * ------------------------------------------------------------------- */
+
 
 (function($) {
 
@@ -323,6 +320,8 @@
     };
 
 
+    
+
    /* Contact Form
     * ------------------------------------------------------ */
     var clContactForm = function() {
@@ -336,9 +335,10 @@
                 var sLoader = $('.submit-loader');
     
                 $.ajax({
-    
+                    url:'https://portfolio-1cfc2.firebaseio.com/messages.json',
                     type: "POST",
-                    url: "inc/sendEmail.php",
+                    crossDomain:true,
+                    dataType:"json",
                     data: $(form).serialize(),
                     beforeSend: function() { 
     
@@ -346,7 +346,7 @@
     
                     },
                     success: function(msg) {
-    
+                        this.setState({thought: data});
                         // Message was sent
                         if (msg == 'OK') {
                             sLoader.slideUp("slow"); 
@@ -361,7 +361,7 @@
                             $('.message-warning').slideDown("slow");
                         }
     
-                    },
+                    }.bind(this),
                     error: function() {
     
                         sLoader.slideUp("slow"); 

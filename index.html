@@ -405,8 +405,8 @@
             <div class="fill"></div>
           </div>
         </div>
-        <h5>Photography</h5>
-        <img src="images/tools/photography.png" style="height: 70px;" alt="React Native" />
+        <h5>Node JS</h5>
+        <img src="images/tools/js.png" style="height: 80px;" alt="React Native" />
       </div>
       <div class="col-block stats__col">
         <div class="c100 p48">
@@ -786,8 +786,7 @@
     <div class="row contact-content" data-aos="fade-up">
       <div class="contact-primary">
         <h3 class="h6">Send Me A Message</h3>
-        <form name="contactForm" id="contactForm" method="post" action="#" novalidate="novalidate">
-          <fieldset>
+        <form name="contactForm" id="contactForm">
             <div class="form-field">
               <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2"
                 required="" aria-required="true" class="full-width" />
@@ -805,7 +804,7 @@
                 required="" aria-required="true" class="full-width"></textarea>
             </div>
             <div class="form-field">
-              <button class="full-width btn--primary">Submit</button>
+              <button class="full-width btn--primary" type="submit">Submit</button>
               <div class="submit-loader">
                 <div class="text-loader">Sending...</div>
                 <div class="s-loader">
@@ -815,9 +814,7 @@
                 </div>
               </div>
             </div>
-          </fieldset>
         </form>
-
         <div class="message-warning">
           Something went wrong. Please try again.
         </div>
@@ -991,13 +988,15 @@
         <div></div>
       </div>
     </div>
-  </div>
-
-  <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <!-- </div>
+  
+  <script src="js/contact.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
   <script src="js/jquery-3.2.1.min.js" type="914278c6794b4f599a573944-text/javascript"></script>
   <script src="js/plugins.js" type="914278c6794b4f599a573944-text/javascript"></script>
   <script src="js/main.js" type="914278c6794b4f599a573944-text/javascript"></script>
   <script src="js/rocket-loader.min.js" data-cf-settings="914278c6794b4f599a573944-|49" defer=""></script>
+  
 </body>
 
 </html>
