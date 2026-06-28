@@ -51,8 +51,8 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} dark scroll-smooth antialiased`}
     >
       <body className="bg-[#08080a] text-neutral-100 font-sans min-h-screen selection:bg-[#e94b3c]/35 selection:text-white">
+        <CustomCursor />
         <SmoothScroll>
-          <CustomCursor />
           {children}
         </SmoothScroll>
       </body>

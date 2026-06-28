@@ -68,10 +68,10 @@ export function BentoGrid() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto w-full px-4"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto w-full px-4"
     >
       {/* Bio / Main Profile Card */}
-      <TiltCard className="md:col-span-2 h-full">
+      <TiltCard className="sm:col-span-2 h-full">
         <motion.div
           variants={itemVariants}
           className="bg-[#0d0d12]/60 border border-[#1f1f2e]/60 rounded-3xl p-8 relative overflow-hidden group hover:border-[#e94b3c]/40 hover:bg-[#0d0d12]/80 transition-colors duration-500 flex flex-col justify-between min-h-[300px] h-full"
@@ -170,7 +170,7 @@ export function BentoGrid() {
       </TiltCard>
 
       {/* Skills Grid Card */}
-      <TiltCard className="md:col-span-2 h-full">
+      <TiltCard className="sm:col-span-2 h-full">
         <motion.div
           variants={itemVariants}
           className="bg-[#0d0d12]/60 border border-[#1f1f2e]/60 rounded-3xl p-8 relative overflow-hidden group hover:border-[#e94b3c]/40 hover:bg-[#0d0d12]/80 transition-colors duration-500 h-full"
