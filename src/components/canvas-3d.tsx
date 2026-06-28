@@ -101,8 +101,8 @@ export function Canvas3D() {
         height * 0.3,
         width * 0.5
       );
-      gradient.addColorStop(0, "rgba(59, 130, 246, 0.08)"); // Indigo glow
-      gradient.addColorStop(0.5, "rgba(147, 51, 234, 0.03)"); // Violet halo
+      gradient.addColorStop(0, "rgba(233, 75, 60, 0.08)"); // Scarlet glow
+      gradient.addColorStop(0.5, "rgba(233, 75, 60, 0.02)"); // Scarlet halo
       gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -187,7 +187,7 @@ export function Canvas3D() {
         if (i % 15 === 0) {
           ctx.beginPath();
           ctx.arc(proj.x, proj.y, proj.size * 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(59, 130, 246, ${proj.alpha * 0.15})`; // blue glow
+          ctx.fillStyle = `rgba(233, 75, 60, ${proj.alpha * 0.25})`; // scarlet glow
           ctx.fill();
         }
       }

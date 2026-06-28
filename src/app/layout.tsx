@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { CustomCursor } from "@/components/custom-cursor";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -48,8 +50,11 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${inter.variable} dark scroll-smooth antialiased`}
     >
-      <body className="bg-[#070709] text-neutral-100 font-sans min-h-screen selection:bg-blue-500/30 selection:text-white">
-        {children}
+      <body className="bg-[#08080a] text-neutral-100 font-sans min-h-screen selection:bg-[#e94b3c]/35 selection:text-white">
+        <SmoothScroll>
+          <CustomCursor />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

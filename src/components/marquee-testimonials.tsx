@@ -45,18 +45,18 @@ export function MarqueeTestimonials() {
   return (
     <div className="w-full overflow-hidden py-10 relative select-none">
       {/* Shadow gradient overlays to fade edges */}
-      <div className="absolute top-0 left-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#070709] to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 right-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#070709] to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#08080a] to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 right-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#08080a] to-transparent z-10 pointer-events-none" />
 
       {/* Sliding track */}
-      <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+      <div data-cursor="drag" className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
         {doubledTestimonials.map((testimonial, idx) => (
           <div
             key={idx}
-            className="w-[300px] md:w-[420px] bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-[#3b82f6]/40 transition-colors duration-300"
+            className="w-[300px] md:w-[420px] bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-6 md:p-8 flex flex-col justify-between hover:border-[#e94b3c]/40 transition-colors duration-300"
           >
             <div>
-              <div className="text-blue-500 mb-4 opacity-40">
+              <div className="text-[#e94b3c] mb-4 opacity-40">
                 <Quote className="w-8 h-8 rotate-180 fill-current" />
               </div>
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed font-normal">

@@ -134,7 +134,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold uppercase tracking-widest text-blue-400"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e94b3c]/10 border border-[#e94b3c]/20 text-xs font-semibold uppercase tracking-widest text-[#e94b3c]"
             >
               <span>Available for Freelance</span>
             </motion.div>
@@ -146,7 +146,7 @@ export default function Home() {
               className="text-5xl sm:text-7xl font-extrabold font-heading text-white tracking-tight leading-[1.05]"
             >
               I am <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-200 to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e94b3c] via-red-200 to-white">
                 Akhil Chaudhary
               </span>
             </motion.h1>
@@ -202,7 +202,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-72 h-72 md:w-96 md:h-96 relative flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#e94b3c]/15 to-transparent rounded-full blur-3xl" />
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl relative">
               <Image
                 src="/Me.jpg"
@@ -214,7 +214,7 @@ export default function Home() {
               />
             </div>
             <div className="absolute -bottom-4 bg-[#0d0d12]/90 border border-[#1f1f2e] backdrop-blur-md px-5 py-2.5 rounded-2xl flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
+              <span className="w-2.5 h-2.5 bg-[#e94b3c] rounded-full animate-pulse" />
               <span className="text-xs font-semibold text-white">Open to contracts</span>
             </div>
           </motion.div>
@@ -245,7 +245,7 @@ export default function Home() {
       <section id="about" className="py-24 border-t border-white/5 bg-[#08080a] relative z-10">
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <div className="text-center md:text-left space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Professional Details</span>
+            <span className="text-xs font-semibold tracking-widest text-[#e94b3c] uppercase">Professional Details</span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">About Me & Skills</h2>
           </div>
         </div>
@@ -256,7 +256,7 @@ export default function Home() {
       <section id="services" className="py-24 border-t border-white/5 relative z-10">
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <div className="max-w-xl text-center md:text-left space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Core Services</span>
+            <span className="text-xs font-semibold tracking-widest text-[#e94b3c] uppercase">Core Services</span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
               Launch and grow your personal brand & business
             </h2>
@@ -265,12 +265,12 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-6 w-full">
           {/* App Development Card */}
-          <div className="bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-8 hover:border-[#3b82f6]/40 transition-colors duration-350 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
-            <div className="p-4 bg-blue-500/10 rounded-2xl border border-blue-500/20 text-blue-400 w-fit mb-6">
+          <div className="bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-8 hover:border-[#e94b3c]/40 transition-colors duration-350 group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#e94b3c]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 bg-[#e94b3c]/10 rounded-2xl border border-[#e94b3c]/20 text-[#e94b3c] w-fit mb-6">
               <Smartphone className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#e94b3c] transition-colors duration-300">
               App Development (iOS & Android)
             </h3>
             <p className="text-neutral-400 text-sm leading-relaxed">
@@ -279,12 +279,12 @@ export default function Home() {
           </div>
 
           {/* Web Development Card */}
-          <div className="bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-8 hover:border-[#3b82f6]/40 transition-colors duration-350 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none" />
-            <div className="p-4 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 text-indigo-400 w-fit mb-6">
+          <div className="bg-[#0d0d12]/50 border border-[#1f1f2e]/60 backdrop-blur-md rounded-3xl p-8 hover:border-[#e94b3c]/40 transition-colors duration-350 group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#e94b3c]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 bg-[#e94b3c]/10 rounded-2xl border border-[#e94b3c]/20 text-[#e94b3c] w-fit mb-6">
               <Globe className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors duration-300">
+            <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#e94b3c] transition-colors duration-300">
               Web Development & System Design
             </h3>
             <p className="text-neutral-400 text-sm leading-relaxed">
@@ -298,7 +298,7 @@ export default function Home() {
       <section id="works" className="py-24 border-t border-white/5 bg-[#08080a] relative z-10">
         <div className="max-w-6xl mx-auto px-6 mb-12">
           <div className="text-center md:text-left space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Recent Creations</span>
+            <span className="text-xs font-semibold tracking-widest text-[#e94b3c] uppercase">Recent Creations</span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">Recent Works</h2>
           </div>
         </div>
@@ -309,7 +309,7 @@ export default function Home() {
       <section id="reviews" className="py-24 border-t border-white/5 relative z-10">
         <div className="max-w-6xl mx-auto px-6 mb-12">
           <div className="text-center md:text-left space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Endorsements</span>
+            <span className="text-xs font-semibold tracking-widest text-[#e94b3c] uppercase">Endorsements</span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">Client Testimonials</h2>
           </div>
         </div>
@@ -320,7 +320,7 @@ export default function Home() {
       <section id="contact" className="py-24 border-t border-white/5 bg-[#08080a] relative z-10">
         <div className="max-w-6xl mx-auto px-6 mb-16">
           <div className="text-center md:text-left space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Get In Touch</span>
+            <span className="text-xs font-semibold tracking-widest text-[#e94b3c] uppercase">Get In Touch</span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">Start A Project</h2>
           </div>
         </div>
@@ -337,31 +337,31 @@ export default function Home() {
 
             <div className="space-y-6 pt-4 border-t border-neutral-900">
               <div className="flex gap-4 items-center">
-                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-blue-400">
+                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-[#e94b3c]">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs uppercase font-bold tracking-widest text-neutral-500">Email Me At</h4>
-                  <a href="mailto:akhilcodebugged@gmail.com?Subject=Hello" className="text-sm font-semibold text-white hover:text-blue-400 transition-colors">
+                  <a href="mailto:akhilcodebugged@gmail.com?Subject=Hello" className="text-sm font-semibold text-white hover:text-[#e94b3c] transition-colors">
                     akhilcodebugged@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4 items-center">
-                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-indigo-400">
+                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-[#e94b3c]">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs uppercase font-bold tracking-widest text-neutral-500">Call Me At</h4>
-                  <a href="tel:+91-8181022104" className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors">
+                  <a href="tel:+91-8181022104" className="text-sm font-semibold text-white hover:text-[#e94b3c] transition-colors">
                     (+91) 8181022104
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4 items-center">
-                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-emerald-400">
+                <div className="p-3 bg-white/5 border border-white/5 rounded-2xl text-[#e94b3c]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -404,7 +404,7 @@ export default function Home() {
               href="https://akhil-chaudhary.github.io/Photo-gallery/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-400 hover:text-white transition-colors cursor-pointer border border-blue-500/20 hover:border-white/20 bg-blue-500/5 hover:bg-white/5 px-4 py-2.5 rounded-full"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#e94b3c] hover:text-white transition-colors cursor-pointer border border-[#e94b3c]/20 hover:border-white/20 bg-[#e94b3c]/5 hover:bg-white/5 px-4 py-2.5 rounded-full"
             >
               <Camera className="w-4 h-4" />
               <span>Explore Photo Gallery</span>
