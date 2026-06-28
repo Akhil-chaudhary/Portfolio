@@ -76,12 +76,12 @@ export function ProjectShowcase() {
         className="grid grid-cols-1 sm:grid-cols-2 gap-8"
       >
         {projects.map((project, idx) => (
-          <TiltCard key={idx} className="h-full">
-            <motion.div
-              variants={cardVariants}
-              data-cursor="view"
-              className="group bg-[#0d0d12]/60 border border-[#1f1f2e]/60 rounded-3xl overflow-hidden hover:border-[#e94b3c]/40 hover:bg-[#0d0d12]/90 transition-all duration-500 flex flex-col h-full shadow-lg relative"
-            >
+          <div key={idx} data-cursor="view" className="h-full">
+            <TiltCard className="h-full">
+              <motion.div
+                variants={cardVariants}
+                className="group bg-[#0d0d12]/60 border border-[#1f1f2e]/60 rounded-3xl overflow-hidden hover:border-[#e94b3c]/40 hover:bg-[#0d0d12]/90 transition-all duration-500 flex flex-col h-full shadow-lg relative"
+              >
               {/* Project Image Panel */}
               <div className="relative aspect-video w-full overflow-hidden bg-neutral-900 border-b border-[#1f1f2e]/60">
                 <Image
@@ -142,8 +142,10 @@ export function ProjectShowcase() {
                 </div>
               </div>
             </motion.div>
-          </TiltCard>
+            </TiltCard>
+          </div>
         ))}
+
       </motion.div>
     </div>
   );

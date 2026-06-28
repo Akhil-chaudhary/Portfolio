@@ -148,11 +148,11 @@ export default function Home() {
       {/* Main Dual-Panel Split Wrapper */}
       <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row relative">
         
-        {/* Left fixed information pane on desktop */}
-        <aside className="w-full lg:w-[42%] lg:fixed lg:top-0 lg:left-auto lg:h-screen lg:flex lg:flex-col lg:justify-between p-6 sm:p-12 lg:py-16 lg:pr-8 z-30 pointer-events-none">
+        {/* Left fixed information pane on desktop — independently scrollable */}
+        <aside className="w-full lg:w-[42%] lg:fixed lg:top-0 lg:left-auto lg:h-screen lg:flex lg:flex-col lg:gap-10 lg:overflow-y-auto sidebar-no-scrollbar p-6 sm:p-12 lg:py-16 lg:pr-8 z-30 pointer-events-auto">
           
           {/* Logo & Subhead */}
-          <div className="pointer-events-auto flex items-center gap-3 mb-8 lg:mb-0">
+          <div className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="Logo"
@@ -166,7 +166,7 @@ export default function Home() {
           </div>
 
           {/* Heavy Editorial Typography Header */}
-          <div className="pointer-events-auto space-y-6">
+          <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e94b3c]/10 border border-[#e94b3c]/20 text-[10px] font-bold uppercase tracking-wider text-[#e94b3c]">
               <span>Open to global contracts</span>
             </div>
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
 
           {/* Desktop Index ScrollSpy indicators */}
-          <nav className="hidden lg:flex flex-col gap-4 pointer-events-auto my-10">
+          <nav className="hidden lg:flex flex-col gap-4">
             {sections.map((sec) => {
               const active = activeSection === sec.id;
               return (
@@ -222,8 +222,6 @@ export default function Home() {
                   }`}>
                     {sec.num}
                   </span>
-                  
-                  {/* Sliding underscore or text transition */}
                   <span className={`text-xs font-bold tracking-wider transition-all duration-300 transform ${
                     active 
                       ? "text-white translate-x-2 pl-2 border-l-2 border-[#e94b3c]" 
@@ -236,8 +234,8 @@ export default function Home() {
             })}
           </nav>
 
-          {/* Social Links Footer */}
-          <div className="pointer-events-auto flex items-center gap-6 mt-8 lg:mt-0">
+          {/* Social Links */}
+          <div className="flex items-center gap-6 pb-8">
             {[
               { icon: <Github className="w-4.5 h-4.5" />, href: "https://github.com/Akhil-chaudhary" },
               { icon: <Linkedin className="w-4.5 h-4.5" />, href: "https://www.linkedin.com/in/akhil-chaudhary-0478a1187" },

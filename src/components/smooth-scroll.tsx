@@ -14,6 +14,14 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       smoothWheel: true,
       wheelMultiplier: 1.1,
       touchMultiplier: 1.5,
+      // Stop Lenis from intercepting scroll on independently-scrollable containers
+      prevent: (node: Element) => {
+        return (
+          node.hasAttribute("data-lenis-prevent") ||
+          node.classList.contains("sidebar-no-scrollbar") ||
+          node.tagName === "ASIDE"
+        );
+      },
     });
 
     function raf(time: number) {

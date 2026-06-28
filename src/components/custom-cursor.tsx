@@ -1,58 +1,74 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 export function CustomCursor() {
   const [cursorType, setCursorType] = useState<"default" | "hover" | "view" | "drag">("default");
   const [isVisible, setIsVisible] = useState(false);
+  // Track how many data-cursor zones we're currently inside
+  const dataCursorDepth = useRef(0);
 
   // Absolute mouse coordinates
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
+  const mouseX = useMotionValue(-200);
+  const mouseY = useMotionValue(-200);
 
   // Eased spring positions for the outer follow ring
   const ringX = useSpring(mouseX, { stiffness: 220, damping: 24 });
   const ringY = useSpring(mouseY, { stiffness: 220, damping: 24 });
 
   useEffect(() => {
-    // Ignore custom cursor on mobile touch viewports
+    // Ignore custom cursor on touch viewports
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (isMobile) return;
 
     document.documentElement.classList.add("custom-cursor-active");
     setIsVisible(true);
 
+    // ── 1. Track exact mouse position ────────────────────────────────────────
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
 
+    // ── 2. Resolve cursor type on every movement ─────────────────────────────
+    //       Walk up from the element under the pointer and find the nearest
+    //       data-cursor attribute. That wins. If none found, fall back to
+    //       checking for generic interactive elements.
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target) return;
 
-      // Search for interactive boundaries
-      const interactiveEl = target.closest("a, button, [role='button'], input, textarea");
-      const viewEl = target.closest("[data-cursor='view']");
-      const dragEl = target.closest("[data-cursor='drag']");
+      // Walk up the DOM to find the nearest [data-cursor] ancestor
+      const dataCursorEl = target.closest<HTMLElement>("[data-cursor]");
 
-      if (viewEl) {
-        setCursorType("view");
-      } else if (dragEl) {
-        setCursorType("drag");
-      } else if (interactiveEl) {
-        setCursorType("hover");
-      } else {
-        setCursorType("default");
+      if (dataCursorEl) {
+        const type = dataCursorEl.dataset.cursor;
+        if (type === "view") {
+          setCursorType("view");
+          return;
+        }
+        if (type === "drag") {
+          setCursorType("drag");
+          return;
+        }
       }
+
+      // Fall back: generic interactive elements
+      const interactiveEl = target.closest("a, button, [role='button'], input, textarea, select, label");
+      if (interactiveEl) {
+        setCursorType("hover");
+        return;
+      }
+
+      setCursorType("default");
     };
 
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseover", handleMouseOver, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
 
@@ -67,7 +83,7 @@ export function CustomCursor() {
 
   if (!isVisible) return null;
 
-  // Custom visual variants
+  // ── Visual variants ────────────────────────────────────────────────────────
   const getRingVariants = () => {
     switch (cursorType) {
       case "hover":
@@ -80,24 +96,24 @@ export function CustomCursor() {
         };
       case "view":
         return {
-          width: 65,
-          height: 65,
+          width: 72,
+          height: 72,
           backgroundColor: "#e94b3c",
           borderColor: "#e94b3c",
           borderWidth: "0px",
         };
       case "drag":
         return {
-          width: 65,
-          height: 65,
+          width: 72,
+          height: 72,
           backgroundColor: "#e94b3c",
           borderColor: "#e94b3c",
           borderWidth: "0px",
         };
       default:
         return {
-          width: 24,
-          height: 24,
+          width: 28,
+          height: 28,
           backgroundColor: "rgba(255, 255, 255, 0)",
           borderColor: "rgba(255, 255, 255, 0.3)",
           borderWidth: "1px",
@@ -116,26 +132,30 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={getRingVariants()}
-        transition={{ type: "spring", stiffness: 450, damping: 32 }}
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-50 flex items-center justify-center overflow-hidden"
+        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center overflow-hidden border border-solid"
       >
         <AnimatePresence>
           {cursorType === "view" && (
             <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
+              key="view"
+              initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="text-[9px] font-black tracking-widest text-white uppercase"
+              exit={{ opacity: 0, scale: 0.6 }}
+              transition={{ duration: 0.15 }}
+              className="text-[9px] font-black tracking-widest text-white uppercase select-none"
             >
               View
             </motion.span>
           )}
           {cursorType === "drag" && (
             <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
+              key="drag"
+              initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="text-[9px] font-black tracking-widest text-white uppercase"
+              exit={{ opacity: 0, scale: 0.6 }}
+              transition={{ duration: 0.15 }}
+              className="text-[9px] font-black tracking-widest text-white uppercase select-none"
             >
               Drag
             </motion.span>
@@ -143,7 +163,7 @@ export function CustomCursor() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Inner Dot */}
+      {/* Inner Dot — hidden when cursor is in a special state */}
       <motion.div
         style={{
           x: mouseX,
@@ -153,8 +173,10 @@ export function CustomCursor() {
         }}
         animate={{
           scale: cursorType !== "default" ? 0 : 1,
+          opacity: cursorType !== "default" ? 0 : 1,
         }}
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-[#e94b3c] rounded-full pointer-events-none z-50"
+        transition={{ duration: 0.15 }}
+        className="fixed top-0 left-0 w-2 h-2 bg-[#e94b3c] rounded-full pointer-events-none z-[9999]"
       />
     </>
   );
